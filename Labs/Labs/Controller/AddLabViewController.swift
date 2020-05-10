@@ -16,6 +16,7 @@ protocol AddLabDelegate {
 class AddLabViewController: UIViewController {
     
     var addDelegate: AddLabDelegate!
+    var datePicker: UIDatePicker?
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
@@ -24,12 +25,39 @@ class AddLabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
+        setUpViews()
+        hideKeyboardWhenTappedAround()
     }
     
     func setDelegates() {
         nameTextField.delegate = self
         dateTextField.delegate = self
         locationTextField.delegate = self
+    }
+    
+    func setUpViews() {
+        datePicker = UIDatePicker()
+        datePicker?.backgroundColor = .white
+        datePicker?.datePickerMode = .date
+        dateTextField.inputView = datePicker
+        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func addPressed(_ sender: UIButton) {

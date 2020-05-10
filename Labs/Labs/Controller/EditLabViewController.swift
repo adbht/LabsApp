@@ -22,6 +22,7 @@ class EditLabViewController: UIViewController {
     var newDate = String()
     var newLocation = String()
     var labDelegate: EditLabDelegate!
+    var datePicker: UIDatePicker?
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
@@ -31,6 +32,7 @@ class EditLabViewController: UIViewController {
         super.viewDidLoad()
         setDelegates()
         setUpViews()
+        hideKeyboardWhenTappedAround()
     }
     
     func setDelegates() {
@@ -42,8 +44,31 @@ class EditLabViewController: UIViewController {
     func setUpViews() {
         view.backgroundColor = .white
         nameTextField.text = name
-        dateTextField.text = date
         locationTextField.text = location
+        dateTextField.text = date
+        
+        datePicker = UIDatePicker()
+        datePicker?.backgroundColor = .white
+        datePicker?.datePickerMode = .date
+        dateTextField.inputView = datePicker
+        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func nameUpdated(_ sender: UITextField) {

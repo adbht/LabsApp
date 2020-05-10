@@ -18,6 +18,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
+        hideKeyboardWhenTappedAround()
     }
     
     func setDelegates() {
@@ -46,6 +47,17 @@ class RegisterViewController: UIViewController {
                 ProgressHUD.showError("Please enter a valid email address and password")
             }
         }
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
