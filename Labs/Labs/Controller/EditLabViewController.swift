@@ -18,8 +18,10 @@ class EditLabViewController: UIViewController {
     var name = String()
     var date = String()
     var location = String()
+    var newName = String()
+    var newDate = String()
+    var newLocation = String()
     var labDelegate: EditLabDelegate!
-    
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
@@ -27,7 +29,14 @@ class EditLabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegates()
         setUpViews()
+    }
+    
+    func setDelegates() {
+        nameTextField.delegate = self
+        dateTextField.delegate = self
+        locationTextField.delegate = self
     }
     
     func setUpViews() {
@@ -38,30 +47,46 @@ class EditLabViewController: UIViewController {
     }
     
     @IBAction func nameUpdated(_ sender: UITextField) {
-        guard let newName = sender.text else {
+        guard let newName = sender.text, !newName.isEmpty else {
             ProgressHUD.showError("Please enter a valid name")
             return
         }
-        labDelegate.didChangeLab(withName: newName, withDate: date, withLocation: location)
+        self.newName = newName
     }
     
     @IBAction func dateUpdated(_ sender: UITextField) {
-        guard let newDate = sender.text else {
+        guard let newDate = sender.text, !newDate.isEmpty else {
             ProgressHUD.showError("Please enter a valid date")
             return
         }
-        labDelegate.didChangeLab(withName: name, withDate: newDate, withLocation: location)
+        self.newDate = newDate
     }
     
     @IBAction func locationUpdated(_ sender: UITextField) {
-        guard let newLocation = sender.text else {
+        guard let newLocation = sender.text, !newLocation.isEmpty else {
             ProgressHUD.showError("Please enter a valid location")
             return
         }
-        labDelegate.didChangeLab(withName: name, withDate: date, withLocation: newLocation)
+        self.newLocation = newLocation
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
+        if !newName.isEmpty {
+            labDelegate.didChangeLab(withName: newName, withDate: date, withLocation: location)
+        }
+        if !newDate.isEmpty {
+            labDelegate.didChangeLab(withName: name, withDate: newDate, withLocation: location)
+        }
+        if !newLocation.isEmpty {
+            labDelegate.didChangeLab(withName: name, withDate: date, withLocation: newLocation)
+        }
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension EditLabViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

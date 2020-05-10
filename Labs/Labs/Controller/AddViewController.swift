@@ -1,5 +1,5 @@
 //
-//  AddLabViewController.swift
+//  AddViewController.swift
 //  Labs
 //
 //  Created by Adi Bhatia on 2020-05-08.
