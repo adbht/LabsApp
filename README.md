@@ -18,8 +18,8 @@ iOS Dev Coding Challenge Application
 
 
 ## Video Demo
-https://github.com/adbht/LabsApp/blob/master/Labs/Video%20Demo/Aditya_Bhatia_Ios_Developer_Video.mp4
-   
+[Video Link](https://github.com/adbht/LabsApp/blob/master/Labs/Video%20Demo/Aditya_Bhatia_Ios_Developer_Video.mp4)
+
    
 ## MVC Design Pattern
    - Model
