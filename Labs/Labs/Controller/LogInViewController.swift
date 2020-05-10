@@ -18,6 +18,12 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        setDelegates()
+    }
+    
+    func setDelegates() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     @IBAction func signInPressed(_ sender: UIButton) {
@@ -43,5 +49,12 @@ class LogInViewController: UIViewController {
                 ProgressHUD.showError("Please enter a valid email address and password")
             }
         }
+    }
+}
+
+extension LogInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

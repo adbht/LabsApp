@@ -56,35 +56,35 @@ class LabViewController: UIViewController {
             } else {
                 self.lat = results[0]["geometry"]["location"]["lat"].double
                 self.lng = results[0]["geometry"]["location"]["lng"].double
-                self.setUpMap()
+                DispatchQueue.main.async {
+                    self.setUpMap()
+                }
             }
         }
         task.resume()
     }
     
     func setUpMap() {
-        DispatchQueue.main.async {
-            guard let lat = self.lat, let lng = self.lng else {
-                self.exitWithError()
-                return
-            }
-            let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(lat),
-                                                  longitude: CLLocationDegrees(lng),
-                                                  zoom: 25)
-            let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
-            self.mapView.addSubview(mapView)
-            mapView.translatesAutoresizingMaskIntoConstraints = false
-            mapView.leadingAnchor.constraint(equalTo: self.mapView.leadingAnchor).isActive = true
-            mapView.trailingAnchor.constraint(equalTo: self.mapView.trailingAnchor).isActive = true
-            mapView.topAnchor.constraint(equalTo: self.mapView.topAnchor).isActive = true
-            mapView.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor).isActive = true
-            let currentLocation = CLLocationCoordinate2DMake(CLLocationDegrees(lat),
-                                                             CLLocationDegrees(lng))
-            let marker = GMSMarker(position: currentLocation)
-            marker.title = self.name
-            marker.map = mapView
-            ProgressHUD.dismiss()
+        guard let lat = self.lat, let lng = self.lng else {
+            self.exitWithError()
+            return
         }
+        let camera = GMSCameraPosition.camera(withLatitude: CLLocationDegrees(lat),
+                                              longitude: CLLocationDegrees(lng),
+                                              zoom: 25)
+        let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        self.mapView.addSubview(mapView)
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.leadingAnchor.constraint(equalTo: self.mapView.leadingAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: self.mapView.trailingAnchor).isActive = true
+        mapView.topAnchor.constraint(equalTo: self.mapView.topAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor).isActive = true
+        let currentLocation = CLLocationCoordinate2DMake(CLLocationDegrees(lat),
+                                                         CLLocationDegrees(lng))
+        let marker = GMSMarker(position: currentLocation)
+        marker.title = self.name
+        marker.map = mapView
+        ProgressHUD.dismiss()
     }
     
     func exitWithError() {

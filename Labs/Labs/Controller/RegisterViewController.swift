@@ -15,6 +15,16 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setDelegates()
+    }
+    
+    func setDelegates() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
     @IBAction func signUpPressed(_ sender: UIButton) {
         ProgressHUD.show()
         
@@ -37,5 +47,11 @@ class RegisterViewController: UIViewController {
             }
         }
     }
+}
 
+extension RegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

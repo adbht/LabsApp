@@ -8,21 +8,26 @@
 
 import UIKit
 import Firebase
+import ProgressHUD
 
 class HomeViewController: UIViewController {
     
     var labs = [Lab]()
+    var filteredLabs = [Lab]()
     var chosenRow = Int()
     var chosenName = String()
     var chosenDate = String()
     var chosenLocation = String()
     var databaseKeys = [Int: String]()
+    let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var labsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.setHidesBackButton(true, animated:true)
+        navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
         labsTableView.delegate = self
         labsTableView.dataSource = self
         retrieveLabs()
@@ -40,8 +45,8 @@ class HomeViewController: UIViewController {
             editLabVC?.name = chosenName
             editLabVC?.date = chosenDate
             editLabVC?.location = chosenLocation
-        } else if segue.destination is AddViewController {
-            let addLabVC = segue.destination as? AddViewController
+        } else if segue.destination is AddLabViewController {
+            let addLabVC = segue.destination as? AddLabViewController
             addLabVC?.addDelegate = self
         }
     }
@@ -60,10 +65,9 @@ class HomeViewController: UIViewController {
             self.databaseKeys[self.labs.count] = snapshot.key
             let snapshotValue = snapshot.value as! [String : String]
             
-            // TODO replace wit guard lets
-            let name = snapshotValue["Name"]!
-            let date = snapshotValue["Date"]!
-            let location = snapshotValue["Location"]!
+            let name = snapshotValue["Name"] ?? ""
+            let date = snapshotValue["Date"] ?? ""
+            let location = snapshotValue["Location"] ?? ""
             
             let lab = Lab(name: name, date: date, location: location)
             self.labs.append(lab)
@@ -81,11 +85,10 @@ class HomeViewController: UIViewController {
         do {
             try Auth.auth().signOut()
         } catch {
-            // TODO: handle error case
+            ProgressHUD.showError("Log out failed!")
         }
-        
         guard navigationController?.popToRootViewController(animated: true) != nil else {
-            // TODO: handle error case
+            ProgressHUD.showError("Log out failed!")
             return
         }
     }
@@ -99,6 +102,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = labs[indexPath.row].name
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
         
@@ -106,6 +110,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         updateCurrentLabDetails(for: indexPath.row)
         performSegue(withIdentifier: "goToLab", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+        retrieveLabs()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -137,6 +142,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            retrieveLabs()
+        } else {
+            filteredLabs = labs.filter { ($0.name.lowercased()).hasPrefix(searchText.lowercased()) }
+            labs = filteredLabs
+            labsTableView.reloadData()
+        }
+    }
+}
+
 extension HomeViewController: AddLabDelegate {
     func addedLab(withName name: String, withDate date: String, withLocation location: String) {
         let labDictionary = [
@@ -147,9 +164,9 @@ extension HomeViewController: AddLabDelegate {
         let labsDB = Database.database().reference().child("Labs")
         labsDB.childByAutoId().setValue(labDictionary) { (error, _) in
             if error == nil {
-                // todo show success
+                ProgressHUD.showSuccess("Lab added successfully!")
             } else {
-                // handle error
+                ProgressHUD.showError("Failed to add the new lab. Please try again.")
             }
         }
     }

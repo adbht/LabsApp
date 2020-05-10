@@ -17,7 +17,7 @@
 		40B9CDEF246600AF0044014A /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B9CDEE246600AF0044014A /* Lab.swift */; };
 		40D90F9A24663F9300D527D1 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90F9924663F9300D527D1 /* LogInViewController.swift */; };
 		40D90F9C24663FB800D527D1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90F9B24663FB800D527D1 /* RegisterViewController.swift */; };
-		40D90FA5246659E800D527D1 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90FA4246659E800D527D1 /* AddViewController.swift */; };
+		40D90FA5246659E800D527D1 /* AddLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90FA4246659E800D527D1 /* AddLabViewController.swift */; };
 		40D90FC524667C0500D527D1 /* LabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90FC424667C0500D527D1 /* LabViewController.swift */; };
 		40D90FC7246685BF00D527D1 /* EditLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90FC6246685BF00D527D1 /* EditLabViewController.swift */; };
 		7C57ADD3D7471C2C4DBF11B2 /* Pods_Labs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666B24926F2EC8420F08564F /* Pods_Labs.framework */; };
@@ -37,7 +37,7 @@
 		40B9CDEE246600AF0044014A /* Lab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
 		40D90F9924663F9300D527D1 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		40D90F9B24663FB800D527D1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		40D90FA4246659E800D527D1 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		40D90FA4246659E800D527D1 /* AddLabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLabViewController.swift; sourceTree = "<group>"; };
 		40D90FC424667C0500D527D1 /* LabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabViewController.swift; sourceTree = "<group>"; };
 		40D90FC6246685BF00D527D1 /* EditLabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLabViewController.swift; sourceTree = "<group>"; };
 		4E28AE942425353B8F638035 /* Pods-Labs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Labs.debug.xcconfig"; path = "Target Support Files/Pods-Labs/Pods-Labs.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				40B9CDDD2465FE320044014A /* HomeViewController.swift */,
 				40D90F9924663F9300D527D1 /* LogInViewController.swift */,
 				40D90F9B24663FB800D527D1 /* RegisterViewController.swift */,
-				40D90FA4246659E800D527D1 /* AddViewController.swift */,
+				40D90FA4246659E800D527D1 /* AddLabViewController.swift */,
 				40D90FC424667C0500D527D1 /* LabViewController.swift */,
 				40D90FC6246685BF00D527D1 /* EditLabViewController.swift */,
 			);
@@ -281,7 +281,7 @@
 				40D90FC524667C0500D527D1 /* LabViewController.swift in Sources */,
 				40B9CDDE2465FE320044014A /* HomeViewController.swift in Sources */,
 				40B9CDDA2465FE320044014A /* AppDelegate.swift in Sources */,
-				40D90FA5246659E800D527D1 /* AddViewController.swift in Sources */,
+				40D90FA5246659E800D527D1 /* AddLabViewController.swift in Sources */,
 				40D90FC7246685BF00D527D1 /* EditLabViewController.swift in Sources */,
 				40B9CDDC2465FE320044014A /* SceneDelegate.swift in Sources */,
 				40D90F9C24663FB800D527D1 /* RegisterViewController.swift in Sources */,
