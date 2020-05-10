@@ -17,8 +17,6 @@
 		40B9CDEF246600AF0044014A /* Lab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B9CDEE246600AF0044014A /* Lab.swift */; };
 		40D90F9A24663F9300D527D1 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90F9924663F9300D527D1 /* LogInViewController.swift */; };
 		40D90F9C24663FB800D527D1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90F9B24663FB800D527D1 /* RegisterViewController.swift */; };
-		40D90FA22466528200D527D1 /* LabTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90FA02466528200D527D1 /* LabTableViewCell.swift */; };
-		40D90FA32466528200D527D1 /* LabTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40D90FA12466528200D527D1 /* LabTableViewCell.xib */; };
 		40D90FA5246659E800D527D1 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90FA4246659E800D527D1 /* AddViewController.swift */; };
 		40D90FC524667C0500D527D1 /* LabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90FC424667C0500D527D1 /* LabViewController.swift */; };
 		40D90FC7246685BF00D527D1 /* EditLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D90FC6246685BF00D527D1 /* EditLabViewController.swift */; };
@@ -39,8 +37,6 @@
 		40B9CDEE246600AF0044014A /* Lab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab.swift; sourceTree = "<group>"; };
 		40D90F9924663F9300D527D1 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		40D90F9B24663FB800D527D1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		40D90FA02466528200D527D1 /* LabTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabTableViewCell.swift; sourceTree = "<group>"; };
-		40D90FA12466528200D527D1 /* LabTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabTableViewCell.xib; sourceTree = "<group>"; };
 		40D90FA4246659E800D527D1 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		40D90FC424667C0500D527D1 /* LabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabViewController.swift; sourceTree = "<group>"; };
 		40D90FC6246685BF00D527D1 /* EditLabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLabViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +112,6 @@
 		40B9CDF1246601340044014A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				40D90F9F2466524300D527D1 /* Lab Cell */,
 				40B9CDDF2465FE320044014A /* Main.storyboard */,
 				40B9CDE42465FE350044014A /* LaunchScreen.storyboard */,
 			);
@@ -130,15 +125,6 @@
 				40B9CDDB2465FE320044014A /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		40D90F9F2466524300D527D1 /* Lab Cell */ = {
-			isa = PBXGroup;
-			children = (
-				40D90FA02466528200D527D1 /* LabTableViewCell.swift */,
-				40D90FA12466528200D527D1 /* LabTableViewCell.xib */,
-			);
-			path = "Lab Cell";
 			sourceTree = "<group>";
 		};
 		6F3E83A07AF7D498B6F5CE29 /* Frameworks */ = {
@@ -222,7 +208,6 @@
 				40B9CDE62465FE350044014A /* LaunchScreen.storyboard in Resources */,
 				40B0677A24662A0B0074CA22 /* GoogleService-Info.plist in Resources */,
 				40B9CDE32465FE350044014A /* Assets.xcassets in Resources */,
-				40D90FA32466528200D527D1 /* LabTableViewCell.xib in Resources */,
 				40B9CDE12465FE320044014A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,7 +284,6 @@
 				40D90FA5246659E800D527D1 /* AddViewController.swift in Sources */,
 				40D90FC7246685BF00D527D1 /* EditLabViewController.swift in Sources */,
 				40B9CDDC2465FE320044014A /* SceneDelegate.swift in Sources */,
-				40D90FA22466528200D527D1 /* LabTableViewCell.swift in Sources */,
 				40D90F9C24663FB800D527D1 /* RegisterViewController.swift in Sources */,
 				40D90F9A24663F9300D527D1 /* LogInViewController.swift in Sources */,
 				40B9CDEF246600AF0044014A /* Lab.swift in Sources */,

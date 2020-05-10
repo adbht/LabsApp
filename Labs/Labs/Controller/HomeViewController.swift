@@ -99,11 +99,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = labs[indexPath.row].name
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "customLabCell", for: indexPath) as! LabTableViewCell
-        
-//        cell.labNameLabel.text = labs[indexPath.row].name
-//        cell.labDateLabel.text = labs[indexPath.row].date
-//        cell.labelLocationLabel.text = labs[indexPath.row].location
         return cell
     }
         
@@ -115,6 +110,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
     }
         
     func tableView(_ tableView: UITableView,
