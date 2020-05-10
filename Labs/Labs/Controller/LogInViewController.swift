@@ -19,7 +19,7 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         setDelegates()
-        hideKeyboardWhenTappedAround()  
+        hideKeyboardWhenTappedAround()
     }
     
     func setDelegates() {

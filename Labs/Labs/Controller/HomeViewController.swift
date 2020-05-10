@@ -165,6 +165,7 @@ extension HomeViewController: AddLabDelegate {
         labsDB.childByAutoId().setValue(labDictionary) { (error, _) in
             if error == nil {
                 ProgressHUD.showSuccess("Lab added successfully!")
+                self.retrieveLabs()
             } else {
                 ProgressHUD.showError("Failed to add the new lab. Please try again.")
             }
