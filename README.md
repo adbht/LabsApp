@@ -1,14 +1,22 @@
 # LabsApp
 iOS Dev Coding Challenge Application
 
+
+## About
+An application to display a list of labs. Each lab contains a `lab name`, `lab date`, and a `lab location`. Users can authenticate via email to access their labs and choose to create, read, update or delete their labs. Additionally, a user may tap on any lab to display a google maps view of where the map is located based on the given location of the lab. 
+
+
 ## Screenshots
 <img src="https://github.com/adbht/LabsApp/blob/master/Labs/Screenshots/logIn.png" width="265"/> <img src="https://github.com/adbht/LabsApp/blob/master/Labs/Screenshots/register.png" width="265"/> <img src="https://github.com/adbht/LabsApp/blob/master/Labs/Screenshots/home.png" width="265"/> 
 
 
 <img src="https://github.com/adbht/LabsApp/blob/master/Labs/Screenshots/addLab.png" width="265"/> <img src="https://github.com/adbht/LabsApp/blob/master/Labs/Screenshots/editLab.png" width="265"/> <img src="https://github.com/adbht/LabsApp/blob/master/Labs/Screenshots/map.png" width="265"/> 
 
-## About
-An application to display a list of labs. Each lab contains a `lab name`, `lab date`, and a `lab location`. Users can authenticate via email to access their labs and choose to create, read, update or delete their labs. Additionally, a user may tap on any lab to display a google maps view of where the map is located based on the given location of the lab. 
+
+## Video Demo
+
+https://github.com/adbht/LabsApp/tree/master/Labs/Video%20Demo
+
 
 ## CocoaPods
 This application was developed with the help of following CocoaPods: 
@@ -16,6 +24,7 @@ This application was developed with the help of following CocoaPods:
    - GoogleMaps
    - SwiftyJSON
    - ProgressHUD
+   
    
 ## MVC Design Pattern
    - Model
