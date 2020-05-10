@@ -3,7 +3,7 @@ iOS Dev Coding Challenge Application
 
 
 ## Features
-   - User Authentication with email
+   - User authentication with email
    - CRUD functionality
    - Labs contain name, date and location
    - Displays a list of labs
@@ -20,14 +20,6 @@ iOS Dev Coding Challenge Application
 ## Video Demo
 
 https://github.com/adbht/LabsApp/tree/master/Labs/Video%20Demo
-
-
-## CocoaPods
-This application was developed with the help of following CocoaPods: 
-   - Firebase
-   - GoogleMaps
-   - SwiftyJSON
-   - ProgressHUD
    
    
 ## MVC Design Pattern
@@ -43,3 +35,11 @@ This application was developed with the help of following CocoaPods:
      - [EditLabViewController.swift](https://github.com/adbht/LabsApp/blob/master/Labs/Labs/Controller/EditLabViewController.swift)
      - [AddLabViewController.swift](https://github.com/adbht/LabsApp/blob/master/Labs/Labs/Controller/AddLabViewController.swift)
      - [LabViewController.swift](https://github.com/adbht/LabsApp/blob/master/Labs/Labs/Controller/LabViewController.swift)
+     
+     
+## CocoaPods
+This application was developed with the help of following CocoaPods: 
+   - Firebase
+   - GoogleMaps
+   - SwiftyJSON
+   - ProgressHUD
