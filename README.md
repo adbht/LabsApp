@@ -2,8 +2,12 @@
 iOS Dev Coding Challenge Application
 
 
-## About
-An application to display a list of labs. Each lab contains a `lab name`, `lab date`, and a `lab location`. Users can authenticate via email to access their labs and choose to create, read, update or delete their labs. Additionally, a user may tap on any lab to display a google maps view of where the map is located based on the given location of the lab. 
+## Features
+   - User Authentication with email
+   - CRUD functionality
+   - Labs contain name, date and location
+   - Displays a list of labs
+   - Users can click on any lab to open a Google Maps query and see the location of the lab
 
 
 ## Screenshots
